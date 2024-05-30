@@ -1,0 +1,6 @@
+# Composer
+curso/proyecto/vendor/*
+
+# PHPUnit
+/.phpunit.cache
+.phpunit.result.cache

@@ -1,0 +1,26 @@
+services:
+
+  php-docker:
+    container_name: php-docker
+    build: .
+    volumes:
+      - ./curso:/var/www/html
+    ports:
+      - "8080:80"
+
+  mysql_db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: php_docker
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "9001:80"
+    environment:
+      - PMA_ARBITRARY=1
+    depends_on:
+      - mysql_db
